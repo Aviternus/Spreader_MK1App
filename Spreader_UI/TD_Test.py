@@ -21,9 +21,9 @@ class C_Spread:
     def get_TDClient(self):
         # Create a new session, credentials path is optional.
         TDSession = TDClient(
-            client_id='',
-            redirect_uri="",
-            credentials_path=""
+            client_id='LZGUB1XDODQPG9D95BZ0G7ZV8AMAUVM8',
+            redirect_uri="http://localhost/green_chip",
+            credentials_path="credentials.json"
         )
         return TDSession
 
