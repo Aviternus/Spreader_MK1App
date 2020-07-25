@@ -12,7 +12,8 @@ KV = '''
 <ContentNavigationDrawer>:
 
     ScrollView:
-
+        bar_color: 1, 0, 0, 1
+        
         MDList:
             
             OneLineListItem:
@@ -28,12 +29,19 @@ KV = '''
                     root.screen_manager.current = "screen_1"
 
 Screen:
+    
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            
+            source: "damocles_background.jpg"
 
     MDToolbar:
         id: toolbar
         pos_hint: {"top": 1}
         elevation: 10
-        title: "MDNavigationDrawer"
+        title: "Navigation"
         left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
 
     NavigationLayout:
@@ -43,19 +51,13 @@ Screen:
             id: screen_manager
             
             Screen: 
-                name: "screen_login"
-                
-                canvas.before:
-                    Rectangle:
-                        pos: self.pos
-                        size: self.sizeK
-                        
-                        source: "damocles_background.jpg"                        
+                name: "screen_login"                    
+                halign: "center"
                 
                 MDLabel:
                     text: "Login Page"
                     font_style: "H6"
-                    text_color: 1, 0.75, 0.25, 1
+                    text_color: 0.3, 0.15, 0.15, 1
                     theme_text_color: "Custom"
                     size_hint: (0.1, 0.025)
                     pos_hint: {'x':.47, 'y':.43}   
@@ -121,8 +123,8 @@ class ContentNavigationDrawer(BoxLayout):
 
 class Spreader_UIApp(MDApp):
     def build(self):
-        self.theme_cls.primary_palette = "Cyan"
-        self.theme_cls.primary_hue = "50"
+        self.theme_cls.primary_palette = "Brown"
+        self.theme_cls.primary_hue = "500"
         self.theme_cls.accent_palette = "Brown"
         self.theme_cls.accent_hue = "500"
 
